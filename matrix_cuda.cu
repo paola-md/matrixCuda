@@ -248,7 +248,7 @@ int main(int argc, char const *argv[])
                 
                 //this is the correct kernal size for different thread sizes..
 
-        gpu_square_matrix_mult<<<dimGrid, dimBlock>>>(d_a, d_b, d_c, n);    
+        gpu_square_matrix_mult<<<1, 32>>>(d_a, d_b, d_c, n);    
     }
     else
     {
