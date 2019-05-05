@@ -252,7 +252,7 @@ int main(int argc, char const *argv[])
     }
     else
     {
-        gpu_matrix_mult<<<dimGrid, dimBlock>>>(d_a, d_b, d_c, m, n, k);    
+        gpu_matrix_mult<<<1, 32>>>(d_a, d_b, d_c, m, n, k);    
     }
     // Transefr results from device to host 
     cudaMemcpy(h_c, d_c, sizeof(int)*m*k, cudaMemcpyDeviceToHost);
