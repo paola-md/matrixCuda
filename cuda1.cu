@@ -9,6 +9,7 @@ void mult(int *d_a,int *d_b, int *d_c, int m)
     int col = blockIdx.x * blockDim.x + threadIdx.x;
     int sum = 0;
 	printf("Hola, entre row = %d, col = %d", row, col);
+	printf("Hola, entre blockIdx.y = %d,threadIdx.y = %d", blockIdx.y, threadIdx.y);
     if( col < m && row < m) 
     {
         for(int i = 0; i < m; i++) 
@@ -54,6 +55,7 @@ int main(int argc, char* argv[]) {
 
 
 	int blockSize = m*m;
+	int numBlocks = 6;
 	//mult<<<numBlocks, blockSize>>>(d_a, d_b, d_c, m);
 	mult<<<blockSize, blockSize>>>(d_a, d_b, d_c, m);
     
