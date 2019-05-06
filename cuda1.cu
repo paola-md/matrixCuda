@@ -8,8 +8,7 @@ void mult(int *d_a,int *d_b, int *d_c, int m)
     int row = blockIdx.y * blockDim.y + threadIdx.y; 
     int col = blockIdx.x * blockDim.x + threadIdx.x;
     int sum = 0;
-	printf("Hola, entre row = %d, col = %d", row, col);
-	printf("Hola, entre blockIdx.y = %d,threadIdx.y = %d", blockIdx.y, threadIdx.y);
+
     if( col < m && row < m) 
     {
         for(int i = 0; i < m; i++) 
