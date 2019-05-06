@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 
 	int blockSize = m*m;
 	//mult<<<numBlocks, blockSize>>>(d_a, d_b, d_c, m);
-	mult<<<1, blockSize>>>(d_a, d_b, d_c, m);
+	mult<<<blockSize, blockSize>>>(d_a, d_b, d_c, m);
     
      // Wait for GPU to finish before accessing on host
 	cudaDeviceSynchronize();	
