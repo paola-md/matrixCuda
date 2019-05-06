@@ -62,9 +62,9 @@ int main(int argc, char* argv[]) {
 	int N = m*2;
 	dim3 threadsPerBlock(N, N);
     dim3 blocksPerGrid(1, 1);
-        if (N*N > 512){
-            threadsPerBlock.x = 512;
-            threadsPerBlock.y = 512;
+        if (N*N > 512*2){
+            threadsPerBlock.x = 512*2;
+            threadsPerBlock.y = 512*2;
             blocksPerGrid.x = ceil(double(N)/double(threadsPerBlock.x));
             blocksPerGrid.y = ceil(double(N)/double(threadsPerBlock.y));
         }
