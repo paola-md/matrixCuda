@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
     // start to count execution time of GPU version
     cudaEventRecord(start, 0);
 	
-	int N = m;
+	int N = m*2;
 	dim3 threadsPerBlock(N, N);
     dim3 blocksPerGrid(1, 1);
         if (N*N > 512){
