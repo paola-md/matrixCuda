@@ -26,8 +26,7 @@ int main(int argc, char* argv[]) {
 	int m;
     printf("Ingresa el tamaño de la matrix cuadrada \n");
     scanf("%d", &m);
-	 //int blockSize = 256;
-	//int numBlocks = (N + blockSize - 1) / blockSize;
+	float gpu_elapsed_time_ms;
 	
 	// Allocate memory space on the device 
 	  int *d_a, *d_b, *d_c;
