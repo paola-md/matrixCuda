@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 	int maxError = 0;
     for (i = 0; i < m; ++i) {
         for (j = 0; j < m; ++j) {
-			maxError = fmax(maxError, fabs( h_c[i * m + j]-res));
+			maxError = fmax(maxError, fabs( d_c[i * m + j]-res));
             printf("%d ", d_c[i * m + j] ); 
         }
 		printf("\n");
