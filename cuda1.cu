@@ -53,11 +53,19 @@ int main(int argc, char* argv[]) {
         }
     }
 
+	
+	int N = m;
+	dim3 threadsPerBlock(N, N);
+    dim3 blocksPerGrid(1, 1);
+        if (N*N > 512){
+            threadsPerBlock.x = 512;
+            threadsPerBlock.y = 512;
+            blocksPerGrid.x = ceil(double(N)/double(threadsPerBlock.x));
+            blocksPerGrid.y = ceil(double(N)/double(threadsPerBlock.y));
+        }
 
-	int blockSize = m*m;
-	int numBlocks = 6;
-	//mult<<<numBlocks, blockSize>>>(d_a, d_b, d_c, m);
-	mult<<<blockSize, blockSize>>>(d_a, d_b, d_c, m);
+    mult<<<blocksPerGrid,threadsPerBlock>>>(d_a, d_b, d_c, m);
+
     
      // Wait for GPU to finish before accessing on host
 	cudaDeviceSynchronize();	
